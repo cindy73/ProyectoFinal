@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button autoHide="false"></ion-menu-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button (click)="Direccionar()">
+          <ion-icon name="search-circle" style="font-size: 35px !important;" color="light"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button  (click)="Perfil($event)">
+          <ion-icon name="person-circle-outline" style="font-size: 35px !important;" color="light"></ion-icon>
+        </ion-button>
+      </ion-buttons>  
+      <ion-title>
+        Populares
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ng-template #error2>
+    <img src="../../../assets/imagenes/errorT.png" style="height:163px; width: 100%;" >
+  </ng-template>
+
+  <ion-content color="dark"> 
+    
+    <div class="wrapper">
+      <div  *ngFor="let item of portada" style="padding: 5px;">
+        <div (click)="Detalles(item.id)">
+        <img *ngIf="item.poster_path else error2" src="https://image.tmdb.org/t/p/original/{{item.poster_path}}" >
+      </div>
+      </div>
+    </div>
+
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="GetPopulares2($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Cargando...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+    </ion-content>

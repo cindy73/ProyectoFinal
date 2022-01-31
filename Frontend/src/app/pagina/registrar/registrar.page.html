@@ -1,0 +1,56 @@
+ 
+   
+  <ion-content class="ion-padding">
+   
+    <ion-row>
+      <ion-col size="12" size-sm="10" offset-sm="1" size-md="8" offset-md="2" size-lg="6" offset-lg="3" size-xl="4"
+        offset-xl="4">
+        <ion-title style="text-align: center;  font-size: 27px;">Registro de Usuario</ion-title>
+        <ion-card color="dark">
+          <ion-card-header style="text-align: center;">
+            <img src="../../../assets/imagenes/man.png" style="width: 95px; height: 95px;" >
+          </ion-card-header>
+   
+          <ion-card-content  >
+  
+           <div style="margin: 10px; margin-bottom: 15px;"> 
+  
+            <ion-item color="dark">
+                <ion-icon name="person" class="icon-login"></ion-icon>
+                <ion-input name="user" [(ngModel)]="nombres" type="text" placeholder="Nombres"></ion-input>
+            </ion-item>
+
+            <br>
+
+            <ion-item color="dark">
+                <ion-icon name="people"></ion-icon>
+                <ion-input  type="text" [(ngModel)]="apellidos" placeholder="Apellidos"></ion-input>
+            </ion-item>
+
+            <br>
+
+            <ion-item color="dark">
+                <ion-icon name="mail"></ion-icon>
+                <ion-input  type="text" [(ngModel)]="correo" placeholder="Correo"></ion-input>
+            </ion-item>   
+
+            <br>
+
+            <ion-item color="dark">
+                <ion-icon name="lock-closed"></ion-icon>
+                <ion-input name="password" [type]="passwordType" [(ngModel)]="contra" placeholder="Contraseña"></ion-input>
+                <ion-icon style="padding-top: 25px;" slot="end" [name]="passwordShow===true ? 'eye':'eye-off'" (click)="Ver()"></ion-icon>
+            </ion-item>
+  
+          </div>
+          
+            <ion-button color="success" expand="block" style="margin: 10px;"  (click)=" IngresarUsuario()">Crear cuenta</ion-button> 
+            <h4>¿Ya tienes una cuenta?  <a style="font-weight: bolder;" href="/login">Entra aquí</a> </h4>
+          </ion-card-content>
+        </ion-card>
+   
+      </ion-col>
+    </ion-row>
+   
+  </ion-content>
+  

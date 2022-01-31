@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button  (click)="Perfil($event)">
+        <ion-icon name="person-circle-outline" style="font-size: 35px !important;" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>  
+    <ion-title>Buscar Actor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ng-template #error>
+  <ion-thumbnail style="margin-right: 18px;">
+    <img src="../../../assets/imagenes/errorT.png">
+  </ion-thumbnail>
+</ng-template>
+
+<ion-content color="dark">
+<ion-searchbar  color="primary" placeholder="Buscar" [(ngModel)]="buscar" (keyup.enter)="ObtenerPelicula()"></ion-searchbar>
+
+<div >
+  <ion-list color="dark" > 
+    <ion-item color="dark" style="border: 1px solid #ffff;" *ngFor="let item of lista">
+        <ion-thumbnail slot="start" *ngIf="item.poster_path else error">
+          <img src="https://image.tmdb.org/t/p/original/{{item.poster_path}}">
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{item.original_title}}</h2>
+          <p>{{item.overview}}</p>
+        </ion-label>
+        <ion-button fill="outline" slot="end" (click)="Detalles(item.id)">
+          Ver</ion-button>
+      </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="ObtenerPelicula($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Cargando...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</div>
+
+</ion-content>
+

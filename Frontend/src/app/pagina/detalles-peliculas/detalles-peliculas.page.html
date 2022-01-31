@@ -1,0 +1,101 @@
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"  (click)="Salir()">
+      <ion-icon name="arrow-back-outline" style="font-size: 25px; padding-left: 10px;"></ion-icon>
+    </ion-buttons>
+    <ion-title>Detalles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ng-template #error>
+    <img height="400" width="100%" src="../../../assets/imagenes/errorT.png">
+</ng-template>
+ 
+
+<ion-content color="dark">
+  <div class="login-wrap">
+    <div class="login-html">
+    <ion-card color="dark">
+      <img  height="500" width="100%" src="https://image.tmdb.org/t/p/original/{{ArrayDetalles.poster_path}}" />
+      <ion-card-header>
+        <ion-card-title style="font-weight: bold; margin-bottom: 8px;">
+          {{ArrayDetalles.original_title}}
+        </ion-card-title>
+        <ion-chip color="primary" *ngFor="let item of ArrayDetalles.genres" >
+          {{item.name}}
+        </ion-chip>          
+        
+      </ion-card-header>
+
+      <ion-card-content>
+        <input id="tab-12" type="radio" name="tab1" class="sign-in" [checked]="asignar"  ><label for="tab-12" class="tab1">Descripción</label>
+        <input id="tab-22" type="radio" name="tab1" class="sign-up"><label for="tab-22"  class="tab1">Comentarios</label>
+            <div class="login-form">
+
+              <div class="sign-in-htm" style="text-align: justify;">
+                  <ion-content color="dark">
+                    <ion-icon name="stopwatch-outline"></ion-icon>
+                    <ion-label> <strong> Duración:</strong> {{ArrayDetalles.runtime}} minutos</ion-label>
+                      <br>
+                      <ion-icon name="calendar-outline"></ion-icon>
+                      <ion-label> <strong>Fecha de lanzamiento:</strong> {{ArrayDetalles.release_date}}</ion-label>
+                      <br>
+                      <ion-icon name="language-outline"></ion-icon>
+                    <ion-label>
+                            <strong>Lenguajes:</strong>
+                            <ion-label *ngFor="let item of ArrayDetalles.spoken_languages">
+                              {{item.name}}/ 
+                            </ion-label>
+                    </ion-label>
+                    <br>
+                    <ion-icon name="cash-outline"></ion-icon>
+                    <ion-label> <strong>Presupuesto:</strong> $ {{ArrayDetalles.budget}}</ion-label>
+                    <br>
+                    <ion-icon name="card-outline"></ion-icon>
+                    <ion-label> <strong>Ingresos:</strong> $ {{ArrayDetalles.revenue}}</ion-label>
+                    <br>
+                    <br>
+                    <h2><strong>Sinopsis</strong></h2>
+                    {{ArrayDetalles.overview}}
+                  </ion-content>
+              </div>
+
+              <div class="sign-up-htm" style="background: #222428;">
+            
+                <div style="background: #222428;" >
+                  <ion-item color="dark-tint" >
+                    <ion-label position="floating">Agregar reseña</ion-label>
+                    <ion-textarea style="border-bottom: 1px solid #ffff;" rows="1"  [(ngModel)]="descripcion"></ion-textarea>
+                  </ion-item>
+                  <ion-button style="padding-top: 5px; float: right;"  (click)="AgregarComentario()">Enviar</ion-button>
+                </div>
+            
+                <h2 style="margin-left: 20px; margin-top: 44px;">Comentarios</h2>
+            
+                <ion-content style="max-height: 200px !important;" color="dark" >
+                  <ion-list *ngFor="let item of ArrayComen" style="background-color: #222428 !important;">
+                    <ion-item style="border: 1px solid #9c9c9f; border-radius: 10px; margin-bottom: 5px;" color="dark" > 
+                      <div style="margin-left: 0px; padding-left: 0px;"></div>
+                      <ion-avatar slot="start" class="light-back" >
+                        <img src="../../../assets/imagenes/user.png">
+                      </ion-avatar>
+                      <ion-label class="ion-text-wrap">
+                        <h2>{{item.usuario.nombres}} {{item.usuario.apellidos}}</h2>
+                        <p style="text-align: justify;">{{item.comentario}}</p>
+                      </ion-label>
+                     </ion-item>
+                 </ion-list>
+                </ion-content>
+
+              </div>
+            </div>
+            
+      </ion-card-content>
+      
+  
+  
+      
+    </ion-card>
+  </div>
+</div>
+</ion-content>

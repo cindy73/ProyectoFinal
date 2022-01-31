@@ -1,0 +1,23 @@
+ion-searchbar{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    --border-radius:10px;
+    text-align: center;
+}
+
+.light-back{
+    background-color: #ffffff;
+    
+}
+
+.business-popover{
+    --border-radius:10px;
+    --width:250px;
+    --height:150px;
+}
+.my-custom-class .popover-content {
+    --background: red;
+  }
+  .list-md{
+    background: #222428 !important;
+}

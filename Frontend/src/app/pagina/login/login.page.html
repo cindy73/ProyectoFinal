@@ -1,0 +1,101 @@
+<div class="login-wrap">
+  <div class="login-html">
+    <img src="../../../assets/imagenes/logoPrincipal.png" style="padding-bottom: 25px;" alt="">
+    <input id="tab-1" type="radio" name="tab" class="sign-in" [checked]="asignar"  (click)="LimpiarR()" ><label for="tab-1" class="tab" >Ingresar</label>
+    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" (click)="LimpiarL()" class="tab" >Registrarse</label>
+    <div class="login-form">
+      <div class="sign-in-htm">
+        <br>
+        <div class="group">
+          <label for="user" class="label">Correo Electrónico</label>
+          <input  [(ngModel)]="correo" placeholder=" Ingrese correo" type="text" class="input">
+        </div>
+        <div class="group">
+          <label for="pass" class="label">Contraseña</label>
+          <input class="input" style="position: absolute;" [type]="passwordType" [(ngModel)]="contra" placeholder=" Ingrese contraseña">
+          <ion-icon color="light" class="icon" slot="end" [name]="passwordShow===true ? 'eye':'eye-off'" (click)="VerL()"></ion-icon>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="group">
+          <button type="submit" class="button"  (click)="IniciarSesion()"> Iniciar Sesión</button>
+        </div>
+        <div class="hr"></div>
+        <div class="foot-lnk">
+          <p class="derechos">Copyright © 2022 All Rights Reserved by Cindy Villavicencio / Julexi Zambrano</p>
+        </div>
+      </div>
+      <div class="sign-up-htm">
+        <div class="group">
+          <label for="user" class="label">Nombres</label>
+          <input [(ngModel)]="nombres" type="text" placeholder="Ingrese nombres" class="input">
+        </div>
+        <div class="group">
+          <label for="pass" class="label">Apellidos</label>
+          <input [(ngModel)]="apellidos" type="text" placeholder="Ingrese apellidos" class="input">
+        </div>
+        <div class="group">
+          <label for="pass" class="label">Correo Electrónico</label>
+          <input  [(ngModel)]="correoR" placeholder="Ingrese correo" class="input" >
+        </div>
+        <div class="group">
+          <label for="pass" class="label">Contraseña</label>
+          <input class="input" style="position: absolute;" [type]="passwordType2" [(ngModel)]="contraR" placeholder=" Ingrese contraseña">
+          <ion-icon color="light" class="icon" slot="end" [name]="passwordShow2===true ? 'eye':'eye-off'" (click)="VerR()"></ion-icon>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="group">
+          <button type="submit" class="button"  (click)="IngresarUsuario()">Registrarse</button>
+        </div>
+         <div class="hr"></div>
+        <div class="foot-lnk">
+          <p class="derechos">Copyright © 2022 All Rights Reserved by Cindy Villavicencio / Julexi Zambrano</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+   
+  
+<!--    <ion-content class="ion-padding" > 
+          <ion-row >
+      <ion-col size="12" size-sm="10" offset-sm="1" size-md="8" offset-md="2" size-lg="6" offset-lg="3" size-xl="4"
+        offset-xl="4">
+        <div style="text-align: center !important;">
+          <img src="../../../assets/imagenes/logo.png" style="width: 215px; height: 215px;" >
+        </div>
+        
+        <ion-card style="padding-top: 1px;" color="dark">
+          <ion-card-header style="text-align: center;">
+            <img src="../../../assets/imagenes/acceso.png" style="width: 95px; height: 95px;" >
+          </ion-card-header>
+          <ion-card-content>
+  
+           <div style="margin: 10px;"> 
+  
+            <ion-item color="dark">
+                <ion-icon name="mail" style="padding-right: 10px;"></ion-icon>
+                <ion-input type="text" [(ngModel)]="correo" placeholder="Correo"></ion-input>
+            </ion-item>  
+
+            <br />
+
+            <ion-item color="dark">
+                <ion-icon name="lock-closed" style="padding-right: 10px;"></ion-icon>
+                <ion-input name="password" [type]="passwordType" [(ngModel)]="contra" placeholder="Contraseña"></ion-input>
+                <ion-icon style="padding-top: 25px;" slot="end" [name]="passwordShow===true ? 'eye':'eye-off'" (click)="Ver()"></ion-icon>
+            </ion-item>
+  
+          </div>
+  
+            <ion-button color="success" expand="block" style="margin: 10px;" (click)="IniciarSesion()" >Iniciar Sesión </ion-button>
+            <ion-button expand="block" color="secondary" style="margin: 10px;" (click)="DireccionarRegistrar()">Registrarse</ion-button>
+          </ion-card-content>
+        </ion-card>
+   
+      </ion-col> 
+    </ion-row> 
+  </ion-content> -->

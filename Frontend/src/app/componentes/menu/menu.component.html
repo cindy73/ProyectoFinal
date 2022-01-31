@@ -1,0 +1,16 @@
+<ion-menu color="dark"  [swipeGesture]="false"  side="start" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content color="dark" style="padding: 0px;">
+    <ion-list color="dark">
+      <ion-item color="dark" routerLink="/buscar"(click)="menuCerrar()"><ion-icon name="search-outline"></ion-icon>Buscar por titulo</ion-item>
+      <ion-item color="dark" routerLink="/buscar-persona"(click)="menuCerrar()"><ion-icon name="person-outline"></ion-icon>Buscar por actor</ion-item>
+      <ion-item color="dark" routerLink="/estrenos"(click)="menuCerrar()"><ion-icon name="film-outline"></ion-icon>Estreno</ion-item>
+      <ion-item color="dark" routerLink="/cartelera"(click)="menuCerrar()"><ion-icon name="videocam-outline"></ion-icon>Cartelera</ion-item>
+      <ion-item color="dark" routerLink="/populares"(click)="menuCerrar()"><ion-icon name="sparkles-outline"></ion-icon>Populares</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
